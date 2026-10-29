@@ -1,87 +1,87 @@
-# Changelog
+CHANGELOG
+=========
 
-All notable changes to Tokenizer are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
+5.4.0
+-----
 
-## [1.2.3] - 2024-03-03
+ * Deprecate `Comparator::setTarget()` and `Comparator::setOperator()`
+ * Add a constructor to `Comparator` that allows setting target and operator
+ * Finder's iterator has now `Symfony\Component\Finder\SplFileInfo` inner type specified
+ * Add recursive .gitignore files support
 
-### Changed
+5.0.0
+-----
 
-* Do not use implicitly nullable parameters
+ * added `$useNaturalSort` argument to `Finder::sortByName()`
 
-## [1.2.2] - 2023-11-20
+4.3.0
+-----
 
-### Fixed
+ * added Finder::ignoreVCSIgnored() to ignore files based on rules listed in .gitignore
 
-* [#18](https://github.com/theseer/tokenizer/issues/18): Tokenizer fails on protobuf metadata files
+4.2.0
+-----
 
+ * added $useNaturalSort option to Finder::sortByName() method
+ * the `Finder::sortByName()` method will have a new `$useNaturalSort`
+   argument in version 5.0, not defining it is deprecated
+ * added `Finder::reverseSorting()` to reverse the sorting
 
-## [1.2.1] - 2021-07-28
+4.0.0
+-----
 
-### Fixed
+ * removed `ExceptionInterface`
+ * removed `Symfony\Component\Finder\Iterator\FilterIterator`
 
-* [#13](https://github.com/theseer/tokenizer/issues/13): Fatal error when tokenizing files that contain only a single empty line
+3.4.0
+-----
 
+ * deprecated `Symfony\Component\Finder\Iterator\FilterIterator`
+ * added Finder::hasResults() method to check if any results were found
 
-## [1.2.0] - 2020-07-13
+3.3.0
+-----
 
-This release is now PHP 8.0 compliant.
+ * added double-star matching to Glob::toRegex()
 
-### Fixed
+3.0.0
+-----
 
-* Whitespace handling in general (only noticable in the intermediate `TokenCollection`) is now consitent  
+ * removed deprecated classes
 
-### Changed
+2.8.0
+-----
 
-* Updated `Tokenizer` to deal with changed whitespace handling in PHP 8.0
-  The XMLSerializer was unaffected.
+ * deprecated adapters and related classes
 
+2.5.0
+-----
+ * added support for GLOB_BRACE in the paths passed to Finder::in()
 
-## [1.1.3] - 2019-06-14
+2.3.0
+-----
 
-### Changed
+ * added a way to ignore unreadable directories (via Finder::ignoreUnreadableDirs())
+ * unified the way subfolders that are not executable are handled by always throwing an AccessDeniedException exception
 
-* Ensure XMLSerializer can deal with empty token collections
+2.2.0
+-----
 
-### Fixed
+ * added Finder::path() and Finder::notPath() methods
+ * added finder adapters to improve performance on specific platforms
+ * added support for wildcard characters (glob patterns) in the paths passed
+   to Finder::in()
 
-* [#2](https://github.com/theseer/tokenizer/issues/2): Fatal error in infection / phpunit
+2.1.0
+-----
 
-
-## [1.1.2] - 2019-04-04
-
-### Changed
-
-* Reverted PHPUnit 8 test update to stay PHP 7.0 compliant
-
-
-## [1.1.1] - 2019-04-03
-
-### Fixed
-
-* [#1](https://github.com/theseer/tokenizer/issues/1): Empty file causes invalid array read 
-
-### Changed
-
-* Tests should now be PHPUnit 8 compliant
-
-
-## [1.1.0] - 2017-04-07
-
-### Added
-
-* Allow use of custom namespace for XML serialization
-
-
-## [1.0.0] - 2017-04-05
-
-Initial Release
-
-[1.2.3]: https://github.com/theseer/tokenizer/compare/1.2.2...1.2.3
-[1.2.2]: https://github.com/theseer/tokenizer/compare/1.2.1...1.2.2
-[1.2.1]: https://github.com/theseer/tokenizer/compare/1.2.0...1.2.1
-[1.2.0]: https://github.com/theseer/tokenizer/compare/1.1.3...1.2.0
-[1.1.3]: https://github.com/theseer/tokenizer/compare/1.1.2...1.1.3
-[1.1.2]: https://github.com/theseer/tokenizer/compare/1.1.1...1.1.2
-[1.1.1]: https://github.com/theseer/tokenizer/compare/1.1.0...1.1.1
-[1.1.0]: https://github.com/theseer/tokenizer/compare/1.0.0...1.1.0
-[1.0.0]: https://github.com/theseer/tokenizer/compare/b2493e57de80c1b7414219b28503fa5c6b4d0a98...1.0.0
+ * added Finder::sortByAccessedTime(), Finder::sortByChangedTime(), and
+   Finder::sortByModifiedTime()
+ * added Countable to Finder
+ * added support for an array of directories as an argument to
+   Finder::exclude()
+ * added searching based on the file content via Finder::contains() and
+   Finder::notContains()
+ * added support for the != operator in the Comparator
+ * [BC BREAK] filter expressions (used for file name and content) are no more
+   considered as regexps but glob patterns when they are enclosed in '*' or '?'
